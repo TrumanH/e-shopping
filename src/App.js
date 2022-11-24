@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import './components/category-item/category-item.styles.scss'
+import CategoryCard from './components/category-item/category-item.component'
 
-function App() {
+const App = ()=> {
+  const categories = [
+    {id: 1, title:"Hats", imgUrl:"1"},
+    {id:2, title:"Jackets", imgUrl:"2"},
+    {id:3, title:"Sneakers", imgUrl:""},
+    {id:4, title:"Womens", imgUrl:""},
+    {id:5, title:"Mens", imgUrl:""},
+  ]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='categories-container'>
+        {categories.map((category) => (
+          <CategoryCard key={category.id} category={category}/>
+        ))}
+      </div>
     </div>
   );
 }
