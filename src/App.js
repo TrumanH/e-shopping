@@ -3,8 +3,8 @@ import CategoryCard from './components/category-item/category-item.component'
 
 const App = ()=> {
   const categories = [
-    {id: 1, title:"Hats", imgUrl:"1"},
-    {id:2, title:"Jackets", imgUrl:"2"},
+    {id: 1, title:"Hats", imgUrl:"https://pic.ntimg.cn/20110908/6097712_102746637123_2.jpg"},
+    {id:2, title:"Jackets", imgUrl:""},
     {id:3, title:"Sneakers", imgUrl:""},
     {id:4, title:"Womens", imgUrl:""},
     {id:5, title:"Mens", imgUrl:""},
