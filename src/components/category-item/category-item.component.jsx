@@ -1,5 +1,5 @@
 
-const CategoryCard = ({category}) => {
+const CategoryItem = ({category}) => {
     const { title, imgUrl} = category;
     return (
         <div className='category-container'>
@@ -12,4 +12,4 @@ const CategoryCard = ({category}) => {
     )
 }
 
-export default CategoryCard
+export default CategoryItem

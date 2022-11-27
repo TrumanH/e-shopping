@@ -1,5 +1,5 @@
 import './components/category-item/category-item.styles.scss'
-import CategoryCard from './components/category-item/category-item.component'
+import Directory from './components/directory/directory.component'
 
 const App = ()=> {
   const categories = [
@@ -11,11 +11,7 @@ const App = ()=> {
   ]
   return (
     <div className="App">
-      <div className='categories-container'>
-        {categories.map((category) => (
-          <CategoryCard key={category.id} category={category}/>
-        ))}
-      </div>
+      <Directory className='categories-container' categories={categories}/>
     </div>
   );
 }
