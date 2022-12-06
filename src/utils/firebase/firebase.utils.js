@@ -18,12 +18,13 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
 
-const provider = new GoogleAuthProvider();
-provider.setCustomParameters({
+const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({
     prompt: 'select_account',
 });
 
-export const signInWithGooglePopup = ()=> signInWithPopup(auth, provider);
+export const signInWithGooglePopup = ()=> signInWithPopup(auth, googleProvider);
+export const signInWithGoogleDirect = ()=> signInWithRedirect(auth, googleProvider);
 
 export const db = getFirestore(); 
 
@@ -41,4 +42,4 @@ export const createUserDocumentFromAuth = async (userAuth) => {
       console.log("Error when create user document:", error);
     }
   }
-}
+};
