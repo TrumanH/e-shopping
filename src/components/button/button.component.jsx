@@ -1,7 +1,7 @@
 import './button.sytles.scss'
 
 const Button_Classes = {
-    'google': 'google_sign_in',
+    'google': 'google-sign-in ',
     'inverted': 'inverted'
 }
 
