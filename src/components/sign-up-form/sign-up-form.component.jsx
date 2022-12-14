@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CreateUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
+import { createAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
 import FormInput from '../../components/form-input/form-input.component';
 import Button from '../../components/button/button.component';
 import './sign-up-form.styles.scss'
@@ -20,6 +20,10 @@ const SignUpForm = ()=> {
         setFormFields({ ...formFields, [name]: value });
     };
 
+    const resetFormFields = ()=> {
+        setFormFields(defaultFormFields);
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         const { displayName, email, password, confirmPassword } = formFields;
@@ -27,7 +31,8 @@ const SignUpForm = ()=> {
             alert("passwords do not match!");
             return;
         }
-        await CreateUserWithEmailAndPassword(displayName, email, password);
+        await createAuthUserWithEmailAndPassword(displayName, email, password);
+        resetFormFields();
     };
 
     return ( 
