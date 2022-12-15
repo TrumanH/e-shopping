@@ -8,7 +8,6 @@ const Shop = ()=> {
   return ( <div><p>The shop page.</p></div> );
 }
 
-
 const App = ()=> {
   return (
     <Routes>
