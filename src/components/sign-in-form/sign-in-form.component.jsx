@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { signInWithGooglePopup, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
+import { signInWithGooglePopup } from '../../utils/firebase/firebase.utils';
 import { signInAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
 import FormInput from '../../components/form-input/form-input.component';
 import Button from '../../components/button/button.component';
@@ -27,8 +27,7 @@ const SignInForm = ()=> {
         event.preventDefault();
         const { email, password } = formFields;
         try {
-            const response = await signInAuthUserWithEmailAndPassword(email, password);
-            console.log(response);
+            await signInAuthUserWithEmailAndPassword(email, password);
             resetFormFields();
         } catch(error) {
             switch (error.code) {
@@ -40,8 +39,8 @@ const SignInForm = ()=> {
     };
 
     const LogGoogleUser = async () => {
-        const response = await signInWithGooglePopup();
-        createUserDocumentFromAuth(response.user)
+        await signInWithGooglePopup();
+        // createUserDocumentFromAuth(user); // already registered in listener
     };
 
     return ( 

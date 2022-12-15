@@ -3,15 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import { UserProvider } from './context/user.context';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // StrictMode in development mode would render all components twice when initiating
+  // <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <UserProvider>
+        <App />
+      </UserProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
