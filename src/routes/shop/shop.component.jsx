@@ -5,7 +5,7 @@ import './shop.styles.scss';
 
 const Shop = ()=> {
     const { products } = useContext(ProductContext);
-    console.log("products:", products);
+    // console.log("products:", products);
     return (
     <div className='products-container'>{products ? products.map((product)=>(
         <ProductCard key={product.id} product={product}/>
