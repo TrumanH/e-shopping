@@ -21,7 +21,9 @@ const Navigation = ()=> {
             </Link>
             <div className='nav-links-container'>
                 <Link className='nav-link' to='/shop'>SHOP</Link>
-                {user ? (<Link className='nav-link' onClick={signOutUser}>SIGN OUT</Link>) : (<Link className='nav-link' to='/auth'>SIGN IN/SIGN UP</Link>)}
+                {user ? (<Link className='nav-link' onClick={signOutUser}>SIGN OUT</Link>) 
+                : (<Link className='nav-link' to='/auth'>SIGN IN/SIGN UP</Link>)
+                }
                 {/* more anchor tag add below */}
                 <CartIcon />
             </div>
