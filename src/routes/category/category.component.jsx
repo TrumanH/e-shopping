@@ -15,7 +15,7 @@ const Category = ()=> {
 
     return (
         <div>
-            <h2>{category}</h2>
+            <h2>{category.toUpperCase()}</h2>
             <div className='category-container'>
             {products ? products.map((product)=><ProductCard key={product.id} product={product}/>) : <h2>No Products!</h2>}
             </div>
