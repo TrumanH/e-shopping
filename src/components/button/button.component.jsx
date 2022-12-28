@@ -1,19 +1,14 @@
-import './button.sytles.scss'
+import { BaseButton, GoogleSignInButton, InvertedButton } from './button.sytles'
 
-const Button_Classes = {
-    'google': 'google-sign-in ',
-    'inverted': 'inverted'
-}
+const getButton = (buttonType = 'base') => ({
+    base: BaseButton,
+    google: GoogleSignInButton,
+    inverted: InvertedButton,
+}[buttonType])
 
 const Button = ({ children, buttonType, ...otherProps }) => {
-    return (
-        <button 
-        className={`button-container ${Button_Classes[buttonType]}`}
-        {...otherProps}
-        >
-            { children }
-        </button>
-    )
+    const CustomButton = getButton(buttonType);
+    return <CustomButton {...otherProps}>{children}</CustomButton>;
 };
 
 export default Button;
