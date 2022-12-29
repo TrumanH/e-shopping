@@ -7,8 +7,6 @@ import { CartDropdownContainer, CartItems, EmptyMessage} from './cart-dropdown.s
 
 const DropDown = () => {
     const { cartItems } = useContext(CartContext);
-    console.log("items:", cartItems);
-
     const navigate = useNavigate();
     const goToCheckout = ()=> navigate('/checkout');
 
