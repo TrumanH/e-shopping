@@ -3,23 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import { UserProvider } from './context/user.context';
 import { CategoriesProvider } from './context/categories.context';
 import { CartProvider } from './context/cart.context';
 import reportWebVitals from './reportWebVitals';
+import { store } from './store/store';
+import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // StrictMode in development mode would render all components twice when initiating
   // <React.StrictMode>
     <BrowserRouter>
-      <UserProvider>
+      <Provider store={store}>
         <CategoriesProvider>
           <CartProvider>
               <App />
           </CartProvider>
         </CategoriesProvider>
-      </UserProvider>
+      </Provider>
     </BrowserRouter>
   // </React.StrictMode>
 );
