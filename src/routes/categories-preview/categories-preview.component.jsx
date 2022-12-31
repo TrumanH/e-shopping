@@ -1,10 +1,9 @@
-import { useContext } from 'react';
-import { CategoriesContext } from '../../context/categories.context';
+import { useSelector } from 'react-redux';
 import CategoryPreview from '../../components/category-preview/category-preview.component';
 import { CategoriesPreviewContainer } from './categories-preview.styles';
 
 const CategoriesPreview = ()=> {
-    const { categories } = useContext(CategoriesContext);
+    const categories = useSelector(state => state.categories.categories);
     // console.log("categories:", categories);
     return (
     <CategoriesPreviewContainer>{categories ? 
