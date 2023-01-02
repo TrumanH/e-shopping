@@ -24,7 +24,7 @@ const App = ()=> {
 
     return unsubscribe;
 }, [dispatch]);
-
+  // TODO: move fetching categories logic to Shop component, and use reselector
   useEffect(() => {
     const getCategoriesMap = async ()=> {
       const categoriesMap = await getCollectionAndDocuments();
