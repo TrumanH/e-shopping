@@ -3,12 +3,12 @@ import CategoryPreview from '../../components/category-preview/category-preview.
 import { CategoriesPreviewContainer } from './categories-preview.styles';
 
 const CategoriesPreview = ()=> {
-    const categories = useSelector(state => state.categories.categories);
+    const categoriesMap = useSelector(state => state.categories.categoriesMap);
     // console.log("categories:", categories);
     return (
-    <CategoriesPreviewContainer>{categories ? 
-        Object.keys(categories).map((title)=>(
-        <CategoryPreview key={title} title={title} products={categories[title]}/>
+    <CategoriesPreviewContainer>{categoriesMap ? 
+        Object.keys(categoriesMap).map((title)=>(
+        <CategoryPreview key={title} title={title} products={categoriesMap[title]}/>
         )) :
         <div>no products data!</div>}
     </CategoriesPreviewContainer>
