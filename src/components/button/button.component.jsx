@@ -1,4 +1,4 @@
-import { BaseButton, GoogleSignInButton, InvertedButton } from './button.sytles'
+import { BaseButton, GoogleSignInButton, InvertedButton, SpinnerButton } from './button.sytles'
 
 const getButton = (buttonType = 'base') => ({
     base: BaseButton,
@@ -6,9 +6,9 @@ const getButton = (buttonType = 'base') => ({
     inverted: InvertedButton,
 }[buttonType])
 
-const Button = ({ children, buttonType, ...otherProps }) => {
+const Button = ({ children, buttonType, isLoading, ...otherProps }) => {
     const CustomButton = getButton(buttonType);
-    return <CustomButton {...otherProps}>{children}</CustomButton>;
+    return <CustomButton {...otherProps}>{isLoading ? <SpinnerButton /> : children}</CustomButton>;
 };
 
 export default Button;
