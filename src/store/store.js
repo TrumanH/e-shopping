@@ -13,6 +13,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { sagaMiddleware, rootSaga } from './saga';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -24,7 +25,8 @@ const persistConfig = {
   key: 'root',
   version: 1,
   storage,
-  blacklist: ['user'],
+  // blacklist: ['user'],
+  whitelist: ['cart'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -41,9 +43,12 @@ export const store = configureStore({
         // Ignore these paths in the state
         ignoredPaths: ['user.user'],
       },
-    }),
+    }).concat(sagaMiddleware),
   devTools: process.env.NODE_ENV !== 'production', // The Redux DevTools Extension is disabled for production
 });
+
+// then run the saga
+sagaMiddleware.run(rootSaga)
 
 export const persistor = persistStore(store);
 

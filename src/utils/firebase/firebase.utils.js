@@ -58,6 +58,7 @@ export const getCollectionAndDocuments = async () => {
   const collectionRef = collection(db, 'categories');
   const q = query(collectionRef);
   const querySnapshot = await getDocs(q);
+  if ( querySnapshot.empty ) { throw new Error("can't get data, offline?"); }
   const categoriesMap = querySnapshot.docs.reduce((accm, doc)=>{
     const { title, items } = doc.data();
     accm[title.toLowerCase()] = items;
@@ -80,7 +81,8 @@ export const createUserDocumentFromAuth = async (userAuth, fields) => {
       console.log("Error when create user document:", error);
     }
   }
-}
+  return userSnapshot;
+};
 
 export const createAuthUserWithEmailAndPassword = async (displayName, email, password) => {
   if ((!displayName) || (!email) || (!password)) {
