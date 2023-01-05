@@ -14,10 +14,10 @@ const App = ()=> {
   
   useEffect(() => {
     const unsubscribe = onAuthStateChangeListener((user)=>{
-    dispatch(setUser(user));
-    if (user) {
-        createUserDocumentFromAuth(user);
-    }
+      if (user) { 
+        const userSnapshot = createUserDocumentFromAuth(user); 
+        dispatch(setUser(user)); // TODO: should be userSnapshot!
+      }
     });
 
     return unsubscribe;
