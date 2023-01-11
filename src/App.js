@@ -14,9 +14,14 @@ const App = ()=> {
   
   useEffect(() => {
     const unsubscribe = onAuthStateChangeListener((user)=>{
+      const createUser = async (user) => {
+        const userSnapshot = await createUserDocumentFromAuth(user);
+        return userSnapshot;
+      };
       if (user) { 
-        const userSnapshot = createUserDocumentFromAuth(user); 
-        dispatch(setUser(user)); // TODO: should be userSnapshot!
+        const userSnapshot = createUser(user); 
+        console.log(userSnapshot);
+        dispatch(setUser(user)); // TODO: test and use userSnapshot!
       }
     });
 
