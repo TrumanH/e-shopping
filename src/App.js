@@ -15,14 +15,14 @@ const App = ()=> {
   useEffect(() => {
     const unsubscribe = onAuthStateChangeListener((user)=>{
       const createUser = async (user) => {
+        if (!user) {return;}
+        // console.log(user); // here can't get displayName from userAuth
         const userSnapshot = await createUserDocumentFromAuth(user);
-        return userSnapshot;
+        const userDoc = userSnapshot.data()
+        dispatch(setUser(userDoc));
       };
-      if (user) { 
-        const userSnapshot = createUser(user); 
-        console.log(userSnapshot);
-        dispatch(setUser(user)); // TODO: test and use userSnapshot!
-      }
+      
+      createUser(user);
     });
 
     return unsubscribe;
