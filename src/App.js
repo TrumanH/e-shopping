@@ -8,30 +8,25 @@ import Checkout from './routes/checkout/checkout.component';
 import { onAuthStateChangeListener, createUserDocumentFromAuth } from './utils/firebase/firebase.utils';
 import { useDispatch } from 'react-redux';
 import { setUser } from './store/user/user.slice';
-import { getCollectionAndDocuments } from './utils/firebase/firebase.utils';
-import { setCategories } from './store/categories/categories.slice';
 
 const App = ()=> {
   const dispatch = useDispatch();
   
   useEffect(() => {
     const unsubscribe = onAuthStateChangeListener((user)=>{
-    dispatch(setUser(user));
-    if (user) {
-        createUserDocumentFromAuth(user);
-    }
+      const createUser = async (user) => {
+        if (!user) {return;}
+        // console.log(user); // here can't get displayName from userAuth
+        const userSnapshot = await createUserDocumentFromAuth(user);
+        const userDoc = userSnapshot.data()
+        dispatch(setUser(userDoc));
+      };
+      
+      createUser(user);
     });
 
     return unsubscribe;
-}, [dispatch]);
-
-  useEffect(() => {
-    const getCategoriesMap = async ()=> {
-      const categoriesMap = await getCollectionAndDocuments();
-      dispatch(setCategories(categoriesMap));
-  };
-  getCategoriesMap(); 
-  }, [dispatch])
+  }, [dispatch]);
 
   return (
     <Routes>
