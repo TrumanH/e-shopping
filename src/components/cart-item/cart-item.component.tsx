@@ -1,5 +1,3 @@
-
-
 import { FC, memo } from 'react';
 import { CartItemContainer, ItemDetails, Text } from './cart-item.styles';
 import { CartItem as CartItemT } from '../../store/cart/cart.slice';
