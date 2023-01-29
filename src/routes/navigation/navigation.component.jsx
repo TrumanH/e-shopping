@@ -10,7 +10,6 @@ import { Navi, LogoLink, NavLinksContainer, NavLink } from './navigation.styles'
 
 const Navigation = ()=> {
     const user = useSelector(state => state.user.user);
-    // console.log(user);
     const isCartOpen = useSelector(state => state.cart.isCartOpen);
 
     return (

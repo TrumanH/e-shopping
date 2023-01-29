@@ -1,9 +1,10 @@
-import { useEffect, lazy, Suspense } from 'react';
+import { useEffect, lazy, Suspense, Fragment } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { onAuthStateChangeListener, createUserDocumentFromAuth } from './utils/firebase/firebase.utils';
 import { useDispatch } from 'react-redux';
 import { setUser } from './store/user/user.slice';
 import Spinner from './components/spinner/spinner.component';
+import GlobalStyle from './global.styles';
 
 const Home = lazy(()=>import('./routes/home/home.component'));
 const Navigation = lazy(()=>import('./routes/navigation/navigation.component'));
@@ -31,16 +32,19 @@ const App = ()=> {
   }, [dispatch]);
 
   return (
-    <Suspense callback={<Spinner />}>
-      <Routes>
-        <Route path="/" element={<Navigation />}>
-          <Route index element={<Home/>} />
-          <Route path='shop/*' element={<Shop />} />
-          <Route path='auth' element={<Authentication />} />
-          <Route path='checkout' element={<Checkout />} />
-        </Route>
-      </Routes>
-    </Suspense>
+    <Fragment>
+      <GlobalStyle />
+      <Suspense callback={<Spinner />}>
+        <Routes>
+          <Route path="/" element={<Navigation />}>
+            <Route index element={<Home/>} />
+            <Route path='shop/*' element={<Shop />} />
+            <Route path='auth' element={<Authentication />} />
+            <Route path='checkout' element={<Checkout />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </Fragment>
   );
 }
 
