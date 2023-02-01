@@ -1,6 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const InitCartState = {
+export interface CartItem {
+  id: string,
+  name: string,
+  price: number,
+  quantity: number,
+  imageUrl: string,
+}
+
+interface CartState {
+  isCartOpen: boolean | null,
+  cartItems: CartItem[],
+  totalQuantity: number,
+  totalPrice: number,
+}
+
+const InitCartState: CartState = {
     isCartOpen: false,
     cartItems: [],
     totalQuantity: 0,
@@ -8,7 +23,7 @@ const InitCartState = {
 };
 
 // helper functions 
-const addItemToCart = (cartItems, itemToAdd) => {
+const addItemToCart = (cartItems: CartItem[], itemToAdd: CartItem) => {
     const existItem = cartItems.find((item)=> item.id===itemToAdd.id);
     if (existItem) {
         // If exist, just increase the quantity of the exist item.
@@ -17,18 +32,18 @@ const addItemToCart = (cartItems, itemToAdd) => {
     return [...cartItems, itemToAdd];
 };
 
-const descreaseItemFromCart = (cartItems, itemToDecrease) => {
+const descreaseItemFromCart = (cartItems: CartItem[], itemToDecrease: CartItem) => {
     const existItem = cartItems.find((item)=>item.id===itemToDecrease.id);
-    if (existItem.quantity===1) {
-        return cartItems.filter((item) => item.id!==itemToDecrease.id);
-    } else { // existItem.quantity > 1
-        return cartItems.map((item)=> item.id===itemToDecrease.id ? {...item, quantity:item.quantity-1} : item);
+    if (existItem && existItem.quantity>1) {
+      return cartItems.map((item)=> item.id===itemToDecrease.id ? {...item, quantity:item.quantity-1} : item);
+    } else { // existItem.quantity <= 1
+      return cartItems.filter((item) => item.id!==itemToDecrease.id);
     }
 };
 
-const removeItemFromCart = (cartItems, itemToRemove) => cartItems.filter((item) => item.id!==itemToRemove.id);
+const removeItemFromCart = (cartItems: CartItem[], itemToRemove: CartItem) => cartItems.filter((item) => item.id!==itemToRemove.id);
 
-const updateTotal = (state) => {
+const updateTotal = (state: CartState) => {
     const newTotalQuantity = state.cartItems.reduce((sum, item)=>sum+item.quantity, 0);
     state.totalQuantity = newTotalQuantity;
     const newTotalPrice = state.cartItems.reduce((sum, item)=>sum+item.quantity*item.price, 0);
