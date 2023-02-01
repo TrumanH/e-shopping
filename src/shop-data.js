@@ -240,3 +240,5 @@ const SHOP_DATA = [
 ];
 
 export default SHOP_DATA;
+
+// fetch data from remote database(firebase) instead, don't need this anymore.
