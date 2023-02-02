@@ -53,18 +53,19 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
   await batchWriter.commit();
 }
 
-// unique function to get category related collection and documents
-export const getCollectionAndDocuments = async () => {
+// unique function to get categories related collection and documents and transfer to map
+export const getCategoriesMap = async () => {
   const collectionRef = collection(db, 'categories');
   const q = query(collectionRef);
   const querySnapshot = await getDocs(q);
   if ( querySnapshot.empty ) { throw new Error("can't get data, offline?"); }
+  // TODO: use type CategoryMap
   const categoriesMap = querySnapshot.docs.reduce((accm, doc)=>{
     const { title, items } = doc.data();
     accm[title.toLowerCase()] = items;
     return accm;
   }, {});
-  return categoriesMap;
+  return categoriesMap; // i.e: {"hat": [{item0...}, {item1...}, {item2...}]}
 };
 
 export const createUserDocumentFromAuth = async (userAuth, fields) => {

@@ -4,7 +4,7 @@ import { BaseButton, GoogleSignInButton, InvertedButton, SpinnerButton } from '.
 export enum BUTTON_TYPES {
     base = 'base',
     google = 'google',
-    inverted = 'inverted',
+    inverted = 'inverted'
 };
 
 const getButton = (buttonType = BUTTON_TYPES.base): typeof BaseButton => ({
