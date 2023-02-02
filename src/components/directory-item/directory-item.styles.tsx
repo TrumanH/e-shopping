@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const BackgroundImage = styled.div`
+type BackgroundImageProps = {
+  imgUrl?: string;
+};
+
+export const BackgroundImage = styled.div<BackgroundImageProps>`
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -38,7 +42,11 @@ export const Body = styled.div`
   }
 `;
 
-export const DirectoryItemContainer = styled.div`
+type SizeProps = {
+  size?: string,
+}
+
+export const DirectoryItemContainer = styled.div<SizeProps>`
   min-width: 30%;
   height: ${({size})=>(size ? '380px' : '240px')};
   flex: 1 1 auto;

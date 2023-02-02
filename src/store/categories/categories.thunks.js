@@ -1,6 +1,7 @@
 import { getCollectionAndDocuments } from '../../utils/firebase/firebase.utils';
 import { getCategoriesStart, setCategories, getCategoriesFailed } from './categories.slice';
 
+/* use saga instead!
 // redux thunk arrow function
 export const getCategories = ()=> async (dispatch, getState)=>{
     // const state = getState();
@@ -16,3 +17,4 @@ export const getCategories = ()=> async (dispatch, getState)=>{
         dispatch(getCategoriesFailed(error.message));
     }
 };
+*/
