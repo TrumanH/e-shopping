@@ -2,10 +2,11 @@ import CheckoutItem from '../../components/checkout-item/checkout-item.component
 import PaymentForm from '../../components/payment-form/payment-form.component';
 import { CheckoutContainer, CheckoutHeader, CheckoutBlock, Total} from './checkout.styles';
 import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 
 
 const Checkout = ()=> {
-    const { cartItems, totalPrice } = useSelector(state => state.cart)
+    const { cartItems, totalPrice } = useSelector((state: RootState) => state.cart)
     return (
         <CheckoutContainer>
             <CheckoutHeader>

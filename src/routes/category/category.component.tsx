@@ -5,19 +5,21 @@ import ProductCard from '../../components/product-card/product-card.component';
 import { CategoryContainer } from  './category.styles';
 import Spinner from '../../components/spinner/spinner.component';
 import { Fragment } from 'react';
+import { RootState } from '../../store/store';
+import { Product } from '../../store/categories/categories.slice';
 
 const Category = ()=> {
-  const { categoriesMap, isLoading } = useSelector(state => state.categories);
+  const { categoriesMap, isLoading } = useSelector((state: RootState) => state.categories);
   const { category } = useParams();
-  const [ products, setProducts ] = useState([]);
+  const [ products, setProducts ] = useState<Product[]>([]);
   
   useEffect(()=>{
-    categoriesMap && setProducts(categoriesMap[category]);
+    if (category) { categoriesMap && setProducts(categoriesMap[category]) }
   }, [categoriesMap, category]);
 
   return (
     <Fragment>
-      <h2>{category.toUpperCase()}</h2>
+      {category ? <h2>{category.toUpperCase()}</h2> : null}
       {isLoading ? <Spinner /> : 
         <CategoryContainer>
           {products ? products.map((product)=><ProductCard key={product.id} product={product}/>) : <h2>No Products!</h2>}

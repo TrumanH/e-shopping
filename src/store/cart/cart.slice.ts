@@ -8,7 +8,7 @@ export interface CartItem {
   imageUrl: string,
 }
 
-interface CartState {
+export interface CartState {
   isCartOpen: boolean | null,
   cartItems: CartItem[],
   totalQuantity: number,

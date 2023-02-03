@@ -1,13 +1,13 @@
-import { all, call, put, takeEvery } from 'redux-saga/effects';
-import { getCollectionAndDocuments } from '../../utils/firebase/firebase.utils';
+import { all, call, put, takeEvery } from 'typed-redux-saga/macro';
+import { getCategoriesMap } from '../../utils/firebase/firebase.utils';
 import { setCategories, getCategoriesFailed } from './categories.slice';
 
 export function* fetchCategories() {
     try {
-        const categoriesMap = yield getCollectionAndDocuments();
-        yield put(setCategories(categoriesMap));
+        const categoriesMap = yield* call(getCategoriesMap);
+        yield* put(setCategories(categoriesMap));
     } catch (error) {
-        yield put(getCategoriesFailed(error.message));
+        yield* put(getCategoriesFailed(error as Error));
     }
 };
 

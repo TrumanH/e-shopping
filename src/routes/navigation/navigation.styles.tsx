@@ -24,7 +24,7 @@ export const NavLinksContainer = styled.div`
 `
 
 export const NavLink = styled(Link)`
-direction: ltr;
-padding: 10px 15px;
-cursor: pointer;
+  direction: ltr;
+  padding: 10px 15px;
+  cursor: pointer;
 `
