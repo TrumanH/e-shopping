@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState,FormEvent, ChangeEvent } from 'react';
 import { createAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
 import FormInput from '../../components/form-input/form-input.component';
-import Button from '../button/button.component';
+import Button, { BUTTON_TYPES } from '../button/button.component';
 import { SignUpContainer } from './sign-up-form.styles';
+import { AuthError, AuthErrorCodes } from 'firebase/auth';
 
 const defaultFormFields = {
     displayName: "",
@@ -15,7 +16,7 @@ const SignUpForm = ()=> {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { displayName, email, password, confirmPassword } = formFields;
     
-    const handleChange = (event) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setFormFields({ ...formFields, [name]: value });
     };
@@ -24,15 +25,22 @@ const SignUpForm = ()=> {
         setFormFields(defaultFormFields);
     }
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const { displayName, email, password, confirmPassword } = formFields;
         if (password!==confirmPassword) {
             alert("passwords do not match!");
             return;
         }
-        await createAuthUserWithEmailAndPassword(displayName, email, password);
-        resetFormFields();
+        try {
+            await createAuthUserWithEmailAndPassword(displayName, email, password);
+            resetFormFields();
+        } catch (error) {
+            switch ((error as AuthError).code) {
+                case AuthErrorCodes.EMAIL_EXISTS: alert("The email already in use!"); break;
+                default: console.log(error);
+            }
+        }
     };
 
     return ( 
@@ -73,7 +81,7 @@ const SignUpForm = ()=> {
                 onChange={handleChange} 
                 value={confirmPassword}
             />
-            <Button buttonType="base">Sign Up</Button>
+            <Button buttonType={BUTTON_TYPES.base}>Sign Up</Button>
         </form>
     </SignUpContainer>
     )

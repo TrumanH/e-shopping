@@ -1,5 +1,8 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, 
+import { 
+  User,
+  NextOrObserver,
+  getAuth, 
   GoogleAuthProvider, 
   signInWithPopup, 
   signInWithRedirect, 
@@ -17,6 +20,7 @@ import { getFirestore,
    query,
    getDocs,
    } from 'firebase/firestore';
+import { CategoryMap } from '../../store/categories/categories.slice';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -43,24 +47,28 @@ export const signInWithGooglePopup = ()=> signInWithPopup(auth, provider);
 
 export const db = getFirestore(); 
 
-export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+export type ObjectToAdd = {
+  title: string;
+};
+
+export const addCollectionAndDocuments = async (collectionKey: string, objectsToAdd: ObjectToAdd[]) => {
   const collectionRef = collection(db, collectionKey);
   const batchWriter = writeBatch(db);
-  objectsToAdd.forEach(object => {
-    const docRef = doc(collectionRef, object.title.toLowerCase());
-    batchWriter.set(docRef, object);
+  objectsToAdd.forEach(obj => {
+    const docRef = doc(collectionRef, obj.title.toLowerCase());
+    batchWriter.set(docRef, obj);
   });
   await batchWriter.commit();
 }
 
 // unique function to get categories related collection and documents and transfer to map
-export const getCategoriesMap = async () => {
+export const getCategoriesMap = async (): Promise<CategoryMap> => {
   const collectionRef = collection(db, 'categories');
   const q = query(collectionRef);
   const querySnapshot = await getDocs(q);
   if ( querySnapshot.empty ) { throw new Error("can't get data, offline?"); }
   // TODO: use type CategoryMap
-  const categoriesMap = querySnapshot.docs.reduce((accm, doc)=>{
+  const categoriesMap: CategoryMap = querySnapshot.docs.reduce((accm: CategoryMap, doc)=>{
     const { title, items } = doc.data();
     accm[title.toLowerCase()] = items;
     return accm;
@@ -68,7 +76,11 @@ export const getCategoriesMap = async () => {
   return categoriesMap; // i.e: {"hat": [{item0...}, {item1...}, {item2...}]}
 };
 
-export const createUserDocumentFromAuth = async (userAuth, fields) => {
+export type AdditionalInformation = {
+  displayName?: string;
+};
+
+export const createUserDocumentFromAuth = async (userAuth: User, fields: AdditionalInformation) => {
   const userDocRef = doc(db, 'users', userAuth.uid);
   const userSnapshot = await getDoc(userDocRef);
   // create user instance if not exist
@@ -85,7 +97,7 @@ export const createUserDocumentFromAuth = async (userAuth, fields) => {
   return userSnapshot;
 };
 
-export const createAuthUserWithEmailAndPassword = async (displayName, email, password) => {
+export const createAuthUserWithEmailAndPassword = async (displayName: string, email: string, password: string) => {
   if ((!displayName) || (!email) || (!password)) {
     return;
   }
@@ -103,7 +115,7 @@ export const createAuthUserWithEmailAndPassword = async (displayName, email, pas
   });
 };
 
-export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+export const signInAuthUserWithEmailAndPassword = async (email: string, password: string) => {
   if ((!email) || (!password)) {
     return;
   }
@@ -112,4 +124,6 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
 export const signOutUser = async ()=> await signOut(auth);
 
-export const onAuthStateChangeListener = (callback) => onAuthStateChanged(auth, callback);
+export const onAuthStateChangeListener = (callback: NextOrObserver<User>) => onAuthStateChanged(auth, callback);
+
+// TODO: migrate user related operations into a particular redux saga file as 'src\store\user\user.saga.ts';

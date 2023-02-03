@@ -38,7 +38,7 @@ export const categoriesSlice = createSlice({
       state.error = null;
     },
     // getCategoriesSucceeded
-    setCategories: (state, action: PayloadAction<any>) => {
+    setCategories: (state, action: PayloadAction<CategoryMap>) => {
       state.categoriesMap = action.payload;
       state.isLoading = false;
       state.error = null;

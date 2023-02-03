@@ -3,6 +3,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { PaymentFormContainer, FormContainer, PaymentButton } from './payment-form.styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { cleanUpItems } from '../../store/cart/cart.slice';
+import { BUTTON_TYPES } from '../button/button.component';
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -56,7 +57,7 @@ const PaymentForm = () => {
         <CardElement />
         <PaymentButton 
           isLoading={isPaymentProcessing}
-          buttonType='inverted' 
+          buttonType={BUTTON_TYPES.inverted} 
           onClick={paymentHandler}
         >
             Pay Now

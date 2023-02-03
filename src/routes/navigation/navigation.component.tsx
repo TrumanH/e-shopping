@@ -6,11 +6,12 @@ import { signOutUser } from '../../utils/firebase/firebase.utils';
 import CartIcon from '../../components/cart-icon/cart-icon.component';
 import DropDown from '../../components/cart-dropdown/card-dropdown.component';
 import { Navi, LogoLink, NavLinksContainer, NavLink } from './navigation.styles';
+import { RootState } from '../../store/store';
 
 
 const Navigation = ()=> {
-    const user = useSelector(state => state.user.user);
-    const isCartOpen = useSelector(state => state.cart.isCartOpen);
+    const user = useSelector((state: RootState) => state.user.user);
+    const isCartOpen = useSelector((state: RootState) => state.cart.isCartOpen);
 
     return (
       <Fragment>
@@ -20,7 +21,7 @@ const Navigation = ()=> {
             </LogoLink>
             <NavLinksContainer>
                 <NavLink to='/shop'>SHOP</NavLink>
-                {user ? (<NavLink  onClick={signOutUser}>SIGN OUT</NavLink>) 
+                {user ? (<NavLink as='span' onClick={signOutUser}>SIGN OUT</NavLink>) 
                 : (<NavLink to='/auth'>SIGN IN/SIGN UP</NavLink>)
                 }
                 {/* more anchor tag add below */}
