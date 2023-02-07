@@ -45,7 +45,7 @@ provider.setCustomParameters({
 
 export const signInWithGooglePopup = ()=> signInWithPopup(auth, provider);
 
-export const db = getFirestore(); 
+const db = getFirestore(); 
 
 export type ObjectToAdd = {
   title: string;
