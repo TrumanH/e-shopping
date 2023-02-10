@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { ReactComponent as Svg } from "../../assets/shopping-bag.svg";
-// TODO: load svg, migrate to typesript
 
 export const CartIconContainer = styled.div`
   width: 45px;

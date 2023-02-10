@@ -53,7 +53,7 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
 // then run the saga
-sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(rootSaga);
 
 export const persistor = persistStore(store);
 

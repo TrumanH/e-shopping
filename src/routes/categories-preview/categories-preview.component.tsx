@@ -10,7 +10,7 @@ import { selectCategoriesMap } from '../../store/categories/categories.slice';
 const CategoriesPreview = ()=> {
     const isLoading = useSelector((state: RootState) => state.categories.isLoading);
     const categoriesMap = useSelector(selectCategoriesMap);
-    console.log("categories:", categoriesMap);
+    // console.log("categories:", categoriesMap);
     return (
       <Fragment>
         {isLoading ? <Spinner /> : 
