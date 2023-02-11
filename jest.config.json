@@ -1,0 +1,4 @@
+{
+  "resolver": "./src/jest.resolver.js",
+  "collectCoverage": true
+}

@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from "@firebase/app";
 import { 
   User,
   NextOrObserver,
@@ -10,7 +10,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
- } from "firebase/auth";
+ } from "@firebase/auth";
 import { getFirestore,
    doc, 
    getDoc,
@@ -19,7 +19,7 @@ import { getFirestore,
    writeBatch,
    query,
    getDocs,
-   } from 'firebase/firestore';
+   } from '@firebase/firestore';
 import { CategoryMap } from '../../store/categories/categories.slice';
 
 // Your web app's Firebase configuration
