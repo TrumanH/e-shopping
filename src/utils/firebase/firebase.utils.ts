@@ -18,9 +18,10 @@ import { getFirestore,
    collection,
    writeBatch,
    query,
+   where,
    getDocs,
    } from 'firebase/firestore';
-import { CategoryMap } from '../../store/categories/categories.slice';
+import { CategoryMap, ProductDetail } from '../../store/categories/categories.slice';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -51,6 +52,7 @@ export type ObjectToAdd = {
   title: string;
 };
 
+// if want create data in firebase, write a script ultilize this function
 export const addCollectionAndDocuments = async (collectionKey: string, objectsToAdd: ObjectToAdd[]) => {
   const collectionRef = collection(db, collectionKey);
   const batchWriter = writeBatch(db);
@@ -60,6 +62,21 @@ export const addCollectionAndDocuments = async (collectionKey: string, objectsTo
   });
   await batchWriter.commit();
 }
+
+export const getProductDetail = async (category: string, id: string): Promise<ProductDetail[]> => {
+  const productsRef = collection(db, 'products');
+  const pid = parseInt(id!, 10);
+  const q = query(productsRef, where("category", "==", category), where("id", "==", pid));
+  const querySnapshot = await getDocs(q);
+  if ( querySnapshot.empty ) { throw new Error("can't get data, offline?"); }
+  const products:ProductDetail[] = querySnapshot.docs.map((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    const {category, id, name, title, price, imageUrl, desc} = doc.data();
+    const p: ProductDetail = {category, id, name, title, price, imageUrl, desc};
+    return p;
+  });
+  return products
+};
 
 // unique function to get categories related collection and documents and transfer to map
 export const getCategoriesMap = async (): Promise<CategoryMap> => {

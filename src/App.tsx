@@ -32,6 +32,15 @@ const App = ()=> {
     return unsubscribe;
   }, [dispatch]);
 
+  // useEffect(()=>{
+  //   import { createProducts } from './shop-data';
+  //   try {
+  //     createProducts();
+  //   } catch (error) {
+  //     console.log("error when create products: ", error);
+  //   }
+  // }, [dispatch]); // one-time snippet to create data in firebase database
+
   return (
     <Fragment>
       <GlobalStyle />

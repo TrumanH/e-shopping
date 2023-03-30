@@ -1,13 +1,20 @@
-import { FC } from 'react';
-import { useParams } from 'react-router-dom';
-import { Product } from '../../store/categories/categories.slice';
+import { FC } from "react";
+import { ProductDetail } from "../../store/categories/categories.slice";
 
-
-const ProductDetail: FC = () => {
-    const { category, id } = useParams();
-    return (
-    <div> {category}, {id} </div>
-    );
+type ProductDetailProps = {
+    product: ProductDetail,
 }
 
-export default ProductDetail;
+const ProductDetails: FC<ProductDetailProps> = ({product}) => {
+    return (
+        <div>
+            <h2>Product detail page: {product.title}</h2>
+            {product.category}
+            {product.name}
+            {product.price}
+            {product.desc}
+        </div>
+    );
+};
+
+export default ProductDetails;
