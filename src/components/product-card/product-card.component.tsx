@@ -8,8 +8,9 @@ import { BUTTON_TYPES } from '../../components/button/button.component';
 
 type ProductCartProps = {
     product: Product,
+    linkto: string
 }
-const ProductCard: FC<ProductCartProps> = ({product}) => {
+const ProductCard: FC<ProductCartProps> = ({product, linkto}) => {
     const { name, price, imageUrl } = product;
     // console.log(name, price, imageUrl);
     const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const ProductCard: FC<ProductCartProps> = ({product}) => {
         dispatch(addItem({...product, quantity: 1}));
     }
     return (
-    <ProductCardContainer>
+    <ProductCardContainer to={linkto}>
         <img src={imageUrl} alt={`${name}`}></img>
         <Footer>
             <Name>{name}</Name>

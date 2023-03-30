@@ -22,7 +22,10 @@ const Category = ()=> {
       {category ? <h2>{category.toUpperCase()}</h2> : null}
       {isLoading ? <Spinner /> : 
         <CategoryContainer>
-          {products ? products.map((product)=><ProductCard key={product.id} product={product}/>) : <h2>No Products!</h2>}
+          {products ? products.map(
+            (product)=><ProductCard key={product.id} product={product} linkto={`${product.id}`}/>) 
+            : <h2>No Products!</h2>
+          }
         </CategoryContainer>
       }
     </Fragment>
