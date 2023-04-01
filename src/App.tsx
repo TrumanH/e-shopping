@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { setUser } from './store/user/user.slice';
 import Spinner from './components/spinner/spinner.component';
 import GlobalStyle from './global.styles';
+import { User } from "firebase/auth";
 
 const Home = lazy(()=>import('./routes/home/home.component'));
 const Navigation = lazy(()=>import('./routes/navigation/navigation.component'));
@@ -17,10 +18,10 @@ const App = ()=> {
   
   useEffect(() => {
     const unsubscribe = onAuthStateChangeListener((user)=>{
-      const createUser = async (user) => {
+      const createUser = async (user: User|null) => {
         if (!user) {return;}
         // console.log(user); // here can't get displayName from userAuth
-        const userSnapshot = await createUserDocumentFromAuth(user);
+        const userSnapshot = await createUserDocumentFromAuth(user, {});
         const userDoc = userSnapshot.data()
         dispatch(setUser(userDoc));
       };
@@ -31,10 +32,19 @@ const App = ()=> {
     return unsubscribe;
   }, [dispatch]);
 
+  // useEffect(()=>{
+  //   import { createProducts } from './shop-data';
+  //   try {
+  //     createProducts();
+  //   } catch (error) {
+  //     console.log("error when create products: ", error);
+  //   }
+  // }, [dispatch]); // one-time snippet to create data in firebase database
+
   return (
     <Fragment>
       <GlobalStyle />
-      <Suspense callback={<Spinner />}>
+      <Suspense fallback={<Spinner />}>
         <Routes>
           <Route path="/" element={<Navigation />}>
             <Route index element={<Home/>} />

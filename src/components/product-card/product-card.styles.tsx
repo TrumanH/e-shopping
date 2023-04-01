@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const ProductCardContainer = styled.div`
   width: 100%;
@@ -34,6 +35,10 @@ export const ProductCardContainer = styled.div`
     }
   }
 `;
+
+export const ImageBox = styled(Link)`
+
+`
 
 export const Footer = styled.div`
   width: 100%;
