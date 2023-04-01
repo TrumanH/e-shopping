@@ -8,6 +8,16 @@ export interface Product {
   price: number,
 };
 
+export interface ProductDetail {
+  category: string,
+  id: number,
+  imageUrl: string,
+  name: string,
+  title: string,
+  price: number,
+  desc: string,
+};
+
 export interface Category {
   title: string;
   imageUrl: string;

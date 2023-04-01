@@ -23,7 +23,6 @@ const Directory = () => {
     imgUrl: "img/category-electronic.jpg",
     route:"shop/electronics"},
   ]
-  // TODO: implement electronics category route.
 
   return (
     <DirectoryContainer>

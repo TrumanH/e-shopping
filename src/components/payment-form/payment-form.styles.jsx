@@ -2,7 +2,9 @@ import styled from "styled-components";
 import Button from "../button/button.component";
 
 export const PaymentFormContainer = styled.div`
-  height: 300px;
+  width: 100%;
+  height: 260px;
+  background-color: lightgrey;
   display: flex;
   flex-direction: column;
   align-items: center;
