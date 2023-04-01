@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ProductCardContainer, Name, Price, Footer} from './product-card.styles';
+import { ProductCardContainer, ImageBox, Name, Price, Footer} from './product-card.styles';
 import Button from '../button/button.component';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../store/cart/cart.slice';
@@ -18,8 +18,10 @@ const ProductCard: FC<ProductCartProps> = ({product, linkto}) => {
         dispatch(addItem({...product, quantity: 1}));
     }
     return (
-    <ProductCardContainer to={linkto}>
-        <img src={imageUrl} alt={`${name}`}></img>
+    <ProductCardContainer >
+        <ImageBox to={linkto}>
+            <img src={imageUrl} alt={`${name}`} />
+        </ImageBox>
         <Footer>
             <Name>{name}</Name>
             <Price>{price}</Price>
