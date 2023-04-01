@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { ProductDetail } from '../../store/categories/categories.slice';
 import { getProductDetail } from '../../utils/firebase/firebase.utils';
 import ProductDetails from '../../components/product-detail/product-detail.component';
+import Spinner from '../../components/spinner/spinner.component';
 
 const defaultPs: ProductDetail[] = [];
 
@@ -18,7 +19,7 @@ const Product: FC = () => {
         getProduct();
     }, []);
     return ( 
-        ps.length >0 ? (<ProductDetails product={ps[0]} />) : <div>loading...</div>
+        ps.length >0 ? (<ProductDetails product={ps[0]} />) : <Spinner />
     );
 }
 
