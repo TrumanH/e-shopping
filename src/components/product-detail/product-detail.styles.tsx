@@ -33,9 +33,9 @@ export const TitleBox = styled.div`
     text-transform: uppercase;
     display: inline-block;
     padding: 5px 10px;
-    position: relative;
+    position: absolute;
     top: -20px;
-    left: -330px;
+    left: -32px;
   }
 `
 type ImageBoxProps = {

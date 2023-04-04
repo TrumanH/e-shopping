@@ -12,7 +12,6 @@ const Product: FC = () => {
     const [ps, setPs] = useState(defaultPs);
     const getProduct = async () => {
         const products = await getProductDetail(category!, id!);
-        // console.log("get product detail: ", products);
         setPs(products);
     }
     useEffect(() => {
