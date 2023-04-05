@@ -1,6 +1,16 @@
-# Live demo
-Live demo to experience: https://jocular-dolphin-4299ed.netlify.app
-# Getting Started with Create React App
+
+# E-shopping
+An e-commerce web app, written with `react.js` framework, to experiment best practises.
+* Use the react framework with modern functional component, typescript and styled-components.
+* Use `redux` as a centric global store to manage global states.(Though also experimented `Context` in primeval version)
+* Used `redux slice` and `redux saga` to implement functionalities and workflows of global states.
+* Use firebase as persistence layer and authentication solution. 
+* Integrated stripe as payment solution.
+
+
+## Live demo
+Live demo to have fun with: https://jocular-dolphin-4299ed.netlify.app
+Since most persistence data are stored in firebase, some API may not available in mainland China.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
