@@ -6,6 +6,7 @@ An e-commerce web app, written with `react.js` framework, to experiment best pra
 * Used `redux slice` and `redux saga` to implement functionalities and workflows of global states.
 * Use firebase as persistence layer and authentication solution. 
 * Integrated stripe as payment solution.
+* PWA enabled.
 
 
 ## Live demo
