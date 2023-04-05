@@ -9,8 +9,9 @@ An e-commerce web app, written with `react.js` framework, to experiment best pra
 
 
 ## Live demo
-Live demo to have fun with: https://jocular-dolphin-4299ed.netlify.app
+Live demo to have fun with: https://jocular-dolphin-4299ed.netlify.app    
 Since most persistence data are stored in firebase, some API may not available in mainland China.
+You can use VPN to get around this.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
