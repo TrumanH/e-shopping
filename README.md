@@ -1,5 +1,11 @@
 
 # E-shopping
+<img src="https://img.shields.io/github/languages/top/TrumanH/e-shopping?color=blue" alt="languages-top" />
+
+<img src="https://img.shields.io/badge/HTML-2.8%25-red" alt="third language percentage">
+<img src="https://img.shields.io/badge/Author-TrumanH-orange" alt="author">
+<img src="https://img.shields.io/github/last-commit/TrumanH/e-shopping" alt="last-commit" />
+
 An e-commerce web app, written with `react.js` framework, to experiment best practises.
 * Use the react framework with modern functional component, typescript and styled-components.
 * Use `redux` as a centric global store to manage global states.(Though also experimented `Context` in primeval version)
