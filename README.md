@@ -1,13 +1,30 @@
 
 # E-shopping
+<img src="https://img.shields.io/github/languages/top/TrumanH/e-shopping?color=blue" alt="languages-top" />
+
+<img src="https://img.shields.io/badge/HTML-2.8%25-red" alt="third language percentage">
+<img src="https://img.shields.io/badge/Author-TrumanH-orange" alt="author">
+<img src="https://img.shields.io/github/last-commit/TrumanH/e-shopping" alt="last-commit" />
+
 An e-commerce web app, written with `react.js` framework, to experiment best practises.
 * Use the react framework with modern functional component, typescript and styled-components.
 * Use `redux` as a centric global store to manage global states.(Though also experimented `Context` in primeval version)
 * Used `redux slice` and `redux saga` to implement functionalities and workflows of global states.
 * Use firebase as persistence layer and authentication solution. 
+* Use Serverless Lambda(Netlify Function) to implement server-side of stripe payment.
 * Integrated stripe as payment solution.
 * PWA enabled.
 
+## Set up 
+Install netlify:
+`npm install netlify-cli -g`
+Use netlify to run app in your local:
+`netlify dev`
+
+## Strip Credit Card Payment Configs
+We can test payment workflow use a test credit card:
+* Card number: 4242 4242 4242 4242
+* Date: any date lagger than current
 
 ## Live demo
 Live demo to have fun with: https://jocular-dolphin-4299ed.netlify.app    
