@@ -10,7 +10,9 @@ import { stripePromise } from './utils/stripe/stripe.utils';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
 root.render(
   // StrictMode in development mode would render all components twice when initiating
   // <React.StrictMode>
