@@ -1,16 +1,22 @@
 
 # E-shopping
-<img src="https://img.shields.io/github/languages/top/TrumanH/e-shopping?color=blue" alt="languages-top" />
-
-<img src="https://img.shields.io/badge/HTML-2.8%25-red" alt="third language percentage">
-<img src="https://img.shields.io/badge/Author-TrumanH-orange" alt="author">
+<div style="display: inline-block;">
+    <img src="https://img.shields.io/github/languages/top/TrumanH/e-shopping?color=blue" alt="languages-top" />
+    <img src="https://img.shields.io/badge/HTML-2.8%25-red" alt="third language percentage" />
+    <img src="https://img.shields.io/badge/Author-TrumanH-orange" alt="author" />
 <img src="https://img.shields.io/github/last-commit/TrumanH/e-shopping" alt="last-commit" />
+</div>
 <!-- <img src="https://img.shields.io/github/commit-status/TrumanH/e-shopping/main/:commit" alt="" /> -->
-<img src="https://img.shields.io/github/issues/TrumanH/e-shopping" alt="open-issue"/>
-<img src="https://img.shields.io/github/issues-closed/TrumanH/e-shopping" alt="closed-issue"/>
-<img src="https://img.shields.io/github/issues-pr/TrumanH/e-shopping" alt="pr" />
-<img src="https://img.shields.io/github/issues-pr-closed/TrumanH/e-shopping" alt="closed-pr" />
-<img src="https://img.shields.io/static/v1?style=?style=flat&logo=appveyor&logo=appveyor&message=E-commerce&color=yellowgreen" alt="field"/>
+<div style="display: inline-block;"> 
+    <img src="https://img.shields.io/github/issues/TrumanH/e-shopping" alt="open-issue"/>
+    <img src="https://img.shields.io/github/issues-closed/TrumanH/e-shopping" alt="closed-issue"/>
+    <img src="https://img.shields.io/github/issues-pr/TrumanH/e-shopping" alt="pr" />
+    <img src="https://img.shields.io/github/issues-pr-closed/TrumanH/e-shopping" alt="closed-pr" />
+</div>
+
+<div style="display: inline-block;">
+    <img src="https://img.shields.io/static/v1?style=?style=flat&logo=appveyor&logo=appveyor&message=E-commerce&color=yellowgreen" alt="field"/>
+</div>
 
 An e-commerce web app, written with `react.js` framework, to experiment best practises.
 * Use the react framework with modern functional component, typescript and styled-components.
