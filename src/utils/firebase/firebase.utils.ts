@@ -25,13 +25,14 @@ import { CategoryMap, ProductDetail } from '../../store/categories/categories.sl
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAOJ9qYidRYS6nQ0KS-8_F3fb2TpVXQXh0",
-  authDomain: "e-shop-35620.firebaseapp.com",
-  projectId: "e-shop-35620",
-  storageBucket: "e-shop-35620.appspot.com",
-  messagingSenderId: "526411354117",
-  appId: "1:526411354117:web:157f52a46d8d1a8dcd8c6c"
+  apiKey: process.env.REACT_APP_Firebase_apiKey,
+  authDomain: process.env.REACT_APP_Firebase_authDomain,
+  projectId: process.env.REACT_APP_Firebase_projectId,
+  storageBucket: process.env.REACT_APP_Firebase_astorageBucket,
+  messagingSenderId: process.env.REACT_APP_Firebase_amessagingSenderId,
+  appId: process.env.REACT_APP_Firebase_aappId,
 };
+console.log(firebaseConfig.appId);
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

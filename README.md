@@ -1,10 +1,22 @@
 
 # E-shopping
-<img src="https://img.shields.io/github/languages/top/TrumanH/e-shopping?color=blue" alt="languages-top" />
-
-<img src="https://img.shields.io/badge/HTML-2.8%25-red" alt="third language percentage">
-<img src="https://img.shields.io/badge/Author-TrumanH-orange" alt="author">
+<div style="display: inline-block;">
+    <img src="https://img.shields.io/github/languages/top/TrumanH/e-shopping?color=blue" alt="languages-top" />
+    <img src="https://img.shields.io/badge/HTML-2.8%25-red" alt="third language percentage" />
+    <img src="https://img.shields.io/badge/Author-TrumanH-orange" alt="author" />
 <img src="https://img.shields.io/github/last-commit/TrumanH/e-shopping" alt="last-commit" />
+</div>
+<!-- <img src="https://img.shields.io/github/commit-status/TrumanH/e-shopping/main/:commit" alt="" /> -->
+<div style="display: inline-block;"> 
+    <img src="https://img.shields.io/github/issues/TrumanH/e-shopping" alt="open-issue"/>
+    <img src="https://img.shields.io/github/issues-closed/TrumanH/e-shopping" alt="closed-issue"/>
+    <img src="https://img.shields.io/github/issues-pr/TrumanH/e-shopping" alt="pr" />
+    <img src="https://img.shields.io/github/issues-pr-closed/TrumanH/e-shopping" alt="closed-pr" />
+</div>
+
+<div style="display: inline-block;">
+    <img src="https://img.shields.io/static/v1?style=?style=flat&logo=appveyor&logo=appveyor&message=E-commerce&color=yellowgreen" alt="field"/>
+</div>
 
 An e-commerce web app, written with `react.js` framework, to experiment best practises.
 * Use the react framework with modern functional component, typescript and styled-components.
@@ -16,15 +28,42 @@ An e-commerce web app, written with `react.js` framework, to experiment best pra
 * PWA enabled.
 
 ## Set up 
+#### Config
+Fill configures in the file '.env', which should in the root folder of the project:
+```
+# Stripe related
+REACT_APP_STRIPE_PUBLIC_KEY = ""
+STRIPE_SECRET_KEY = ""
+
+# Firebase related
+REACT_APP_Firebase_apiKey = ""
+REACT_APP_Firebase_authDomain = ""
+REACT_APP_Firebase_aprojectId = ""
+REACT_APP_Firebase_astorageBucket = ""
+REACT_APP_Firebase_amessagingSenderId = ""
+REACT_APP_Firebase_aappId = ""
+```
+
+#### Install Dependences
+Install packages:
+`npm install`
+
 Install netlify:
+Since the server-side code of stripe payment workflow was implemented with serverless lambda function, we use netlify to run lambda functions.
 `npm install netlify-cli -g`
-Use netlify to run app in your local:
+*This installs Netlify CLI globally, so you can run netlify commands from any directory.*
+
+Login netlify:
+`netlify login`
+
+#### Launch Dev APP
+Use netlify to launch app in your local environment:
 `netlify dev`
 
-## Strip Credit Card Payment Configs
-We can test payment workflow use a test credit card:
-* Card number: 4242 4242 4242 4242
-* Date: any date lagger than current
+### Strip Credit Card Payment Configs
+We can test payment workflow with a test credit card:
+- Card number: 4242 4242 4242 4242
+- Date: any date lagger than current
 
 ## Live demo
 Live demo to have fun with: https://jocular-dolphin-4299ed.netlify.app    
