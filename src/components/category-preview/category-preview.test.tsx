@@ -1,16 +1,20 @@
 
-import DropDown from './card-dropdown.component';
+import CategoryPreview from './category-preview.component';
 import {render, screen} from "@testing-library/react";
 import { BrowserRouter } from 'react-router-dom';
 import {Provider} from "react-redux";
 import {store} from "../../store/store";
 
-describe('DropDown component', () => {
+describe('CategoryPreview component', () => {
+    const props = {
+        title: "hat",
+        products: []
+    };
     const produceComponent = () => {
         return render(
           <BrowserRouter>
             <Provider store={store}>
-              <DropDown />
+              <CategoryPreview title={props.title} products={props.products}/>
             </Provider>
           </BrowserRouter>
           
@@ -22,8 +26,8 @@ describe('DropDown component', () => {
       expect(asFragment()).toMatchSnapshot();
     });
 
-    test('render the DropDown component', ()=>{
+    test('render the CategoryPreview component, get category name', ()=>{
         produceComponent();
-        expect(screen.getByText(/Your cart is empty/i)).toBeInTheDocument();
+        expect(screen.getByText(/HAT/i)).toBeInTheDocument();
     });
 });
