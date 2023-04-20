@@ -18,7 +18,7 @@
     <img src="https://img.shields.io/static/v1?style=?style=flat&logo=appveyor&logo=appveyor&message=E-commerce&color=yellowgreen" alt="field"/>
 </div>
 
-An e-commerce web app, written with `react.js` framework, to experiment best practises.
+An e-commerce website written with `react.js` framework, to experiment best practises.
 * Use the react framework with modern functional component, typescript and styled-components.
 * Use `redux` as a centric global store to manage global states.(Though also experimented `Context` in primeval version)
 * Used `redux slice` and `redux saga` to implement functionalities and workflows of global states.
@@ -45,19 +45,19 @@ REACT_APP_Firebase_aappId = ""
 ```
 
 #### Install Dependences
-Install packages:
+Install packages:   
 `npm install`
 
-Install netlify:
-Since the server-side code of stripe payment workflow was implemented with serverless lambda function, we use netlify to run lambda functions.
-`npm install netlify-cli -g`
+Install netlify:    
+Since the server-side code of stripe payment workflow was implemented with serverless lambda function, we use netlify to run lambda functions.      
+`npm install netlify-cli -g`        
 *This installs Netlify CLI globally, so you can run netlify commands from any directory.*
 
-Login netlify:
+Login netlify:      
 `netlify login`
 
 #### Launch Dev APP
-Use netlify to launch app in your local environment:
+Use netlify to launch app in your local environment:    
 `netlify dev`
 
 ### Strip Credit Card Payment Configs
@@ -70,10 +70,8 @@ Live demo to have fun with: https://jocular-dolphin-4299ed.netlify.app
 Since most persistence data are stored in firebase, some API may not available in mainland China.
 You can use VPN to get around this.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
-
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 In the project directory, you can run:
 
 ### `npm start`

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropDown component match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-pyfCe eGtPgj"
+  >
+    <div
+      class="sc-kDvujY lcwnWP"
+    >
+      <span
+        class="sc-jrcTuL huYouY"
+      >
+        Your cart is empty
+      </span>
+    </div>
+    <button
+      class="sc-dkrFOg bAenDU"
+    >
+      Go To Checkout
+    </button>
+  </div>
+</DocumentFragment>
+`;
