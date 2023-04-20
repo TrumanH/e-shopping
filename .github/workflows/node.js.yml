@@ -46,6 +46,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-    - run: echo 'projectId ${{ REACT_APP_Firebase_aprojectId }}'
+        
     - run: yarn install
     - run: yarn test . --coverage --coverageDirectory='output/coverage/report'
