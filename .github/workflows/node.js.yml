@@ -28,4 +28,4 @@ jobs:
         cache: 'yarn'
     - run: yarn install
     - run: CI=false yarn run build --if-present
-    - run: yarn test . --coverage --reporters='html' --coverageDirectory='output/coverage/report'
+    - run: yarn test . --coverage --coverageDirectory='output/coverage/report'
