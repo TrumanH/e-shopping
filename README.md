@@ -1,5 +1,6 @@
 
 # E-shopping
+[![Github Action CI](https://github.com/TrumanH/e-shopping/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/TrumanH/e-shopping/actions/workflows/node.js.yml)
 <div style="display: inline-block;">
     <img src="https://img.shields.io/github/languages/top/TrumanH/e-shopping?color=blue" alt="languages-top" />
     <img src="https://img.shields.io/badge/HTML-2.8%25-red" alt="third language percentage" />
