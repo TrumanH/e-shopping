@@ -33,6 +33,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     environment: test
+    env:
+      # Setting an environment variable with the value of a configuration variable
+      REACT_APP_Firebase_apiKey: ${{ secrets.REACT_APP_FIREBASE_APIKEY }}
+      REACT_APP_Firebase_authDomain: ${{ secrets.REACT_APP_FIREBASE_AUTHDOMAIN }}
+      REACT_APP_Firebase_aprojectId: ${{ secrets.REACT_APP_FIREBASE_APROJECTID }}
+      REACT_APP_Firebase_astorageBucket: ${{ secrets.REACT_APP_FIREBASE_ASTORAGEBUCKET }}
+      REACT_APP_Firebase_amessagingSenderId: ${{ secrets.REACT_APP_FIREBASE_AMESSAGINGSENDERID }}
+      REACT_APP_Firebase_aappId: ${{ secrets.REACT_APP_FIREBASE_AAPPID }}
+    
     needs: build
     strategy:
       matrix:
