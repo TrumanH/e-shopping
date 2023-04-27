@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Directory component match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-hLBbgP bpLFCn"
+  >
+    <div
+      class="sc-dkrFOg iMwJpz"
+    >
+      <div
+        class="sc-bcXHqe dhsxTk"
+      />
+      <div
+        class="sc-gswNZR eDNCNc"
+      >
+        <h2>
+          hats
+        </h2>
+        <p>
+          shop now
+        </p>
+      </div>
+    </div>
+    <div
+      class="sc-dkrFOg iMwJpz"
+    >
+      <div
+        class="sc-bcXHqe bEpRzn"
+      />
+      <div
+        class="sc-gswNZR eDNCNc"
+      >
+        <h2>
+          jackets
+        </h2>
+        <p>
+          shop now
+        </p>
+      </div>
+    </div>
+    <div
+      class="sc-dkrFOg iMwJpz"
+    >
+      <div
+        class="sc-bcXHqe cEjYjY"
+      />
+      <div
+        class="sc-gswNZR eDNCNc"
+      >
+        <h2>
+          sneakers
+        </h2>
+        <p>
+          shop now
+        </p>
+      </div>
+    </div>
+    <div
+      class="sc-dkrFOg iMwJpz"
+    >
+      <div
+        class="sc-bcXHqe KIgen"
+      />
+      <div
+        class="sc-gswNZR eDNCNc"
+      >
+        <h2>
+          womens
+        </h2>
+        <p>
+          shop now
+        </p>
+      </div>
+    </div>
+    <div
+      class="sc-dkrFOg iMwJpz"
+    >
+      <div
+        class="sc-bcXHqe eCBlPb"
+      />
+      <div
+        class="sc-gswNZR eDNCNc"
+      >
+        <h2>
+          mens
+        </h2>
+        <p>
+          shop now
+        </p>
+      </div>
+    </div>
+    <div
+      class="sc-dkrFOg iMwJpz"
+    >
+      <div
+        class="sc-bcXHqe gratzo"
+      />
+      <div
+        class="sc-gswNZR eDNCNc"
+      >
+        <h2>
+          electronics
+        </h2>
+        <p>
+          shop now
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
