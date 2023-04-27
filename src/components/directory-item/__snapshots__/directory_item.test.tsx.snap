@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DirectoryItem component match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-dkrFOg iMwJpz"
+  >
+    <div
+      class="sc-bcXHqe kwwRQA"
+    />
+    <div
+      class="sc-gswNZR eDNCNc"
+    >
+      <h2>
+        hat
+      </h2>
+      <p>
+        shop now
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
