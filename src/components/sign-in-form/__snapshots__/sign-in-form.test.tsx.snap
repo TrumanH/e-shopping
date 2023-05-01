@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInForm component match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-pyfCe fbPgbJ"
+  >
+    <span>
+      <h2>
+        Already have an account? Sign in with email and password
+      </h2>
+    </span>
+    <form>
+      <div
+        class="sc-bcXHqe fKGfpR"
+      >
+        <input
+          class="sc-dkrFOg FwHat"
+          name="email"
+          required=""
+          type="email"
+          value=""
+        />
+        <label
+          class="sc-gswNZR kTULmD"
+        >
+          Email
+        </label>
+      </div>
+      <div
+        class="sc-bcXHqe fKGfpR"
+      >
+        <input
+          class="sc-dkrFOg FwHat"
+          name="password"
+          required=""
+          type="password"
+          value=""
+        />
+        <label
+          class="sc-gswNZR kTULmD"
+        >
+          Password
+        </label>
+      </div>
+      <div
+        class="sc-jrcTuL irwjLS"
+      >
+        <button
+          class="sc-jSUZER sc-iBYQkv bCXwAi gKqJdh"
+        >
+          Sign In
+        </button>
+        <button
+          class="sc-jSUZER sc-gKPRtg bCXwAi gAXer"
+        >
+          Google Sign In
+        </button>
+      </div>
+    </form>
+  </div>
+</DocumentFragment>
+`;
