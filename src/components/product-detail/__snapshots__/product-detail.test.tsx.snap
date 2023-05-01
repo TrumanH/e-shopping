@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductDetails component match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-gKPRtg gnxzBh"
+  >
+    <div
+      class="sc-iBYQkv kvqNyH"
+    >
+      hat title
+    </div>
+    <div
+      class="sc-ftTHYK gbOShF"
+    />
+    <div
+      class="sc-pyfCe fXLYXf"
+    >
+      <div
+        class="sc-csuSiG hNmClS"
+      >
+        <div
+          class="sc-eDWCr jXujlU"
+        >
+          $10
+        </div>
+        <div
+          class="sc-bqWxrE idwknZ"
+        >
+          FREE SHIPPING
+        </div>
+      </div>
+      <div
+        class="sc-ksBlkl ktPCv"
+      >
+        Ready to dress up or down, this fashion product "hat name" is poping up now, it's been collected in our "hats" category.
+      </div>
+      <a
+        class="sc-jrcTuL jHfhAy"
+        href="#"
+      >
+        More information → 
+      </a>
+      <div
+        class="sc-hBxehG dMUjYu"
+      >
+        <div
+          class="sc-fnGiBr hSazdw"
+          color="black"
+        />
+        <div
+          class="sc-fnGiBr epremR"
+          color="blue"
+        />
+        <div
+          class="sc-fnGiBr haXDRk"
+          color="red"
+        />
+        <div
+          class="sc-fnGiBr emRjSH"
+          color="yellow"
+        />
+        <div
+          class="sc-fnGiBr fmOIjQ"
+          color="green"
+        />
+        <div
+          class="sc-fnGiBr kmHHNN"
+          color="brown"
+        />
+      </div>
+    </div>
+    <div
+      class="sc-kDvujY bYVQOq"
+    >
+      <h3
+        class="sc-fEXmlR bPsMWd"
+      >
+        product details
+      </h3>
+      <ul
+        class="sc-bjfHbI gjJLzy"
+      >
+        <li
+          class="sc-idXgbr gDreXT"
+        >
+          Poping up fashion item in our catetory hats collection.
+        </li>
+        <li
+          class="sc-idXgbr gDreXT"
+        >
+          Category: hats.
+        </li>
+        <li
+          class="sc-idXgbr gDreXT"
+        >
+          Product name: hat name.
+        </li>
+        <li
+          class="sc-idXgbr gDreXT"
+        >
+          Shipping fee: Free shipping.
+        </li>
+      </ul>
+    </div>
+    <button
+      class="sc-dkrFOg sc-eDvSVe bAenDU iJPJvM sc-ipEyDJ iDXrum"
+    >
+      ADD TO CART
+    </button>
+  </div>
+</DocumentFragment>
+`;

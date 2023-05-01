@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUpForm component match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-pyfCe iAeuar"
+  >
+    <span>
+      <h2>
+        Sign up with email and password
+      </h2>
+    </span>
+    <form>
+      <div
+        class="sc-bcXHqe fKGfpR"
+      >
+        <input
+          class="sc-dkrFOg FwHat"
+          name="displayName"
+          required=""
+          type="text"
+          value=""
+        />
+        <label
+          class="sc-gswNZR kTULmD"
+        >
+          Display Name
+        </label>
+      </div>
+      <div
+        class="sc-bcXHqe fKGfpR"
+      >
+        <input
+          class="sc-dkrFOg FwHat"
+          name="email"
+          required=""
+          type="email"
+          value=""
+        />
+        <label
+          class="sc-gswNZR kTULmD"
+        >
+          Email
+        </label>
+      </div>
+      <div
+        class="sc-bcXHqe fKGfpR"
+      >
+        <input
+          class="sc-dkrFOg FwHat"
+          name="password"
+          required=""
+          type="password"
+          value=""
+        />
+        <label
+          class="sc-gswNZR kTULmD"
+        >
+          Password
+        </label>
+      </div>
+      <div
+        class="sc-bcXHqe fKGfpR"
+      >
+        <input
+          class="sc-dkrFOg FwHat"
+          name="confirmPassword"
+          required=""
+          type="password"
+          value=""
+        />
+        <label
+          class="sc-gswNZR kTULmD"
+        >
+          Confirm Password
+        </label>
+      </div>
+      <button
+        class="sc-jSUZER bCXwAi"
+      >
+        Sign Up
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;
