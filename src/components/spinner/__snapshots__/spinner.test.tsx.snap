@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUpForm component match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bcXHqe bFLwAG"
+  >
+    <div
+      class="sc-gswNZR eiyJqi"
+    />
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormInput component match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bcXHqe bTZjOl"
+  >
+    <a
+      class="sc-gswNZR wwBVH"
+      href="/1"
+    >
+      <img
+        alt="hat1"
+        src="https://i.ibb.co/ZYW3VTp/brown-brim.png"
+      />
+    </a>
+    <div
+      class="sc-dkrFOg kzpERn"
+    >
+      <span
+        class="sc-hLBbgP dVGwNp"
+      >
+        hat1
+      </span>
+      <span
+        class="sc-eDvSVe dDgpdG"
+      >
+        10
+      </span>
+    </div>
+    <button
+      class="sc-iBYQkv sc-pyfCe gPWRgN eQcexy"
+    >
+      ADD TO CART
+    </button>
+  </div>
+</DocumentFragment>
+`;

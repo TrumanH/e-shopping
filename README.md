@@ -1,11 +1,78 @@
-# Live demo
-Live demo to have fun with: https://jocular-dolphin-4299ed.netlify.app
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# E-shopping
+[![Github Action CI](https://github.com/TrumanH/e-shopping/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/TrumanH/e-shopping/actions/workflows/node.js.yml)
+<div style="display: inline-block;">
+    <img src="https://img.shields.io/github/languages/top/TrumanH/e-shopping?color=blue" alt="languages-top" />
+    <img src="https://img.shields.io/badge/HTML-2.8%25-red" alt="third language percentage" />
+    <img src="https://img.shields.io/badge/Author-TrumanH-orange" alt="author" />
+<img src="https://img.shields.io/github/last-commit/TrumanH/e-shopping" alt="last-commit" />
+</div>
+<!-- <img src="https://img.shields.io/github/commit-status/TrumanH/e-shopping/main/:commit" alt="" /> -->
+<div style="display: inline-block;"> 
+    <img src="https://img.shields.io/github/issues/TrumanH/e-shopping" alt="open-issue"/>
+    <img src="https://img.shields.io/github/issues-closed/TrumanH/e-shopping" alt="closed-issue"/>
+    <img src="https://img.shields.io/github/issues-pr/TrumanH/e-shopping" alt="pr" />
+    <img src="https://img.shields.io/github/issues-pr-closed/TrumanH/e-shopping" alt="closed-pr" />
+</div>
+
+<div style="display: inline-block;">
+    <img src="https://img.shields.io/static/v1?style=?style=flat&logo=appveyor&logo=appveyor&message=E-commerce&color=yellowgreen" alt="field"/>
+</div>
+
+An e-commerce website written with `react.js` framework, to experiment best practises.
+* Use the react framework with modern functional component, typescript and styled-components.
+* Use `redux` as a centric global store to manage global states.(Though also experimented `Context` in primeval version)
+* Used `redux slice` and `redux saga` to implement functionalities and workflows of global states.
+* Use firebase as persistence layer and authentication solution. 
+* Use Serverless Lambda(Netlify Function) to implement server-side of stripe payment.
+* Integrated stripe as payment solution.
+* PWA enabled.
+
+## Set up 
+#### Config
+Fill configures in the file '.env', which should in the root folder of the project:
+```
+# Stripe related
+REACT_APP_STRIPE_PUBLIC_KEY = ""
+STRIPE_SECRET_KEY = ""
+
+# Firebase related
+REACT_APP_Firebase_apiKey = ""
+REACT_APP_Firebase_authDomain = ""
+REACT_APP_Firebase_projectId = ""
+REACT_APP_Firebase_storageBucket = ""
+REACT_APP_Firebase_messagingSenderId = ""
+REACT_APP_Firebase_appId = ""
+```
+
+#### Install Dependences
+Install packages:   
+`npm install`
+
+Install netlify:    
+Since the server-side code of stripe payment workflow was implemented with serverless lambda function, we use netlify to run lambda functions.      
+`npm install netlify-cli -g`        
+*This installs Netlify CLI globally, so you can run netlify commands from any directory.*
+
+Login netlify:      
+`netlify login`
+
+#### Launch Dev APP
+Use netlify to launch app in your local environment:    
+`netlify dev`
+
+### Strip Credit Card Payment Configs
+We can test payment workflow with a test credit card:
+- Card number: 4242 4242 4242 4242
+- Date: any date lagger than current
+
+## Live demo
+Live demo to have fun with: https://jocular-dolphin-4299ed.netlify.app    
+Since most persistence data are stored in firebase, some API may not available in mainland China.
+You can use VPN to get around this.
 
 ## Available Scripts
-
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 In the project directory, you can run:
 
 ### `npm start`

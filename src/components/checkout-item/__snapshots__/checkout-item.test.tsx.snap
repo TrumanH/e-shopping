@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckoutItem component match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bcXHqe geWseC"
+  >
+    <div
+      class="sc-gswNZR bMaIyz"
+    >
+      <img
+        alt="Brown Brim"
+        src="https://i.ibb.co/ZYW3VTp/brown-brim.png"
+      />
+    </div>
+    <span
+      class="sc-dkrFOg hlmRre"
+    >
+      Brown Brim
+    </span>
+    <span
+      class="sc-dkrFOg sc-hLBbgP hlmRre gJsMjZ"
+    >
+      <div
+        class="sc-eDvSVe gTUNTl"
+      >
+        ❮
+      </div>
+      <span
+        class="sc-jSUZER blfUCp"
+      >
+        2
+      </span>
+      <div
+        class="sc-eDvSVe gTUNTl"
+      >
+        ❯
+      </div>
+    </span>
+    <span
+      class="sc-dkrFOg hlmRre"
+    >
+       25
+    </span>
+    <div
+      class="sc-gKPRtg jRpdXo"
+    >
+      ✕
+    </div>
+  </div>
+</DocumentFragment>
+`;
