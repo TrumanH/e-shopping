@@ -39,10 +39,10 @@ STRIPE_SECRET_KEY = ""
 # Firebase related
 REACT_APP_Firebase_apiKey = ""
 REACT_APP_Firebase_authDomain = ""
-REACT_APP_Firebase_aprojectId = ""
-REACT_APP_Firebase_astorageBucket = ""
-REACT_APP_Firebase_amessagingSenderId = ""
-REACT_APP_Firebase_aappId = ""
+REACT_APP_Firebase_projectId = ""
+REACT_APP_Firebase_storageBucket = ""
+REACT_APP_Firebase_messagingSenderId = ""
+REACT_APP_Firebase_appId = ""
 ```
 
 #### Install Dependences
