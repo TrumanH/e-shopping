@@ -4,17 +4,19 @@ import { PaymentFormContainer, FormContainer, PaymentButton } from './payment-fo
 import { useSelector, useDispatch } from 'react-redux';
 import { cleanUpItems } from '../../store/cart/cart.slice';
 import { BUTTON_TYPES } from '../button/button.component';
+import { RootState } from '../../store/store';
+import { User } from '../../store/user/user.slice';
 
 const PaymentForm = () => {
   const stripe = useStripe();
   const elements = useElements();
-  const totalPrice = useSelector(state=>state.cart.totalPrice);
-  const currentUser = useSelector(state=>state.user.user);
+  const totalPrice = useSelector<RootState, number>(state =>state.cart.totalPrice);
+  const currentUser = useSelector<RootState, User|null >(state=>state.user.user);
   const dispatch = useDispatch();
   // console.log(currentUser);
   const [ isPaymentProcessing, setPaymentProcessing ] = useState(false);
 
-  const paymentHandler = async (e) => {
+  const paymentHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!stripe || !elements) { return; }
     setPaymentProcessing(true);
@@ -28,11 +30,13 @@ const PaymentForm = () => {
     }).then(res=> res.json());
     // get credential 'client_secret' from response, which would used to get result of the payment. 
     const clientSecret = response.paymentIntent.client_secret;
+    const card = elements.getElement(CardElement);
+    if (!card) {return;}
 
     // request stripe to get result of the payment intent created before.
     const paymentResult = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
-        card: elements.getElement(CardElement),
+        card: card,
         billing_details: {
           name: currentUser ? currentUser.displayName : 'Truman He',
         },
