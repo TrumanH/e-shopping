@@ -5,7 +5,7 @@ import {
   getAuth, 
   GoogleAuthProvider, 
   signInWithPopup, 
-  signInWithRedirect, 
+  // signInWithRedirect, 
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
@@ -46,7 +46,7 @@ provider.setCustomParameters({
 
 export const signInWithGooglePopup = ()=> signInWithPopup(auth, provider);
 
-const db = getFirestore(); 
+export const db = getFirestore(app); 
 
 export type ObjectToAdd = {
   title: string;
