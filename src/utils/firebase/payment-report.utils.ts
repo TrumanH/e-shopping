@@ -15,7 +15,7 @@ export interface paymentReport {
     month: string // i.e: '2023-4', May 2023
     status: string // i.e: 'pending', 'succeeded', 'failed'
     url: string // only available when status is 'succeeded'
-    result: object | null
+    content: object | null
 };
 
 // get payment report, can also judge if exist 

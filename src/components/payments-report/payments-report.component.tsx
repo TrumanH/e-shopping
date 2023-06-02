@@ -6,15 +6,14 @@ import { getPaymentReportIns } from '../../utils/firebase/payment-report.utils';
 
 // from itemized balance change activity report.
 const PaymentsReport = () => {
-  const [lastMonth, setLastMonth ] = useState("");
+  const [reportMonth, setReportMonth ] = useState("");
   const [reportId, setReportId ] = useState("");
   
   const runReportHandler = async ()=> {
-    const report = await runReport();
+    const report = await runReport(); // payment report of last month
     if (!report) { return; }
-    const { month, id } = report;
-    setLastMonth(month);
-    setReportId(id);
+    setReportMonth(report.month);
+    setReportId(report.id);
   }
 
   const retrieveReportHandler = async () => {
@@ -25,9 +24,13 @@ const PaymentsReport = () => {
       console.log(report);
       return report;
     }
-    await retrieveReport(lastMonth, reportId);
+    await retrieveReport(reportMonth, reportId);
   }
-    
+  
+  const showReportHanderler = async ()=>{
+    // TODO: get report detail from firebase and generate coresponding UI charts.
+  };
+
   return (
       <ReportContainer>
         <Header>Payments UI</Header>
@@ -37,6 +40,8 @@ const PaymentsReport = () => {
           <br/>
           <p>Retrieve payment report of last month</p>
           <Button onClick={retrieveReportHandler}>Retrieve</Button>
+          <p>Retrieve payment report of last month</p>
+          <Button onClick={showReportHanderler}>Show</Button>
         </BtsBox>
       </ReportContainer>
       

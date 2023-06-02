@@ -1,6 +1,7 @@
 import { getPaymentReportIns, createPaymentReportIns, updatePaymentReportIns } from '../../utils/firebase/payment-report.utils';
 import { paymentReport } from '../../utils/firebase/payment-report.utils';
 
+// Rather than manually trigger it on frontend, instead, should run the report in a backend service routinely.
 // run payment report of last month, and record the report into firebase.
 export const runReport = async () => {
     // request severless function to get a payment report(of last month).
@@ -18,7 +19,7 @@ export const runReport = async () => {
       },
       body: JSON.stringify({interval_start: start, interval_end: end}),
     }).then(res=> res.json());  
-    if (response.statusCode == 400) {
+    if (response.statusCode === 400) {
       console.log(response.body.error); // log error
       return;
     }   // statusCode==200, the report status would be pending for a while. 
@@ -35,12 +36,13 @@ export const runReport = async () => {
       month: lastMonth, 
       status: reportRun.status,
       url: reportRun.result.url,
-      result: null, // TODO: parse and fill content of csv file
+      content: null, // TODO: parse and fill content of csv file
     }; // 
     createPaymentReportIns(paymentReport); // create report instance in firebase
     return paymentReport;
 };
 
+// Should trigger this function in a backend service, by a webhock event from stripe.
 // retrieve payment report from stripe api, and update it's result into firebase. 
 export const retrieveReport = async (month:string, report_id: string)=> {
   const resp = await fetch('./.netlify/functions/retrieve-payment-report', {
@@ -49,8 +51,13 @@ export const retrieveReport = async (month:string, report_id: string)=> {
     body: JSON.stringify({report_id}),  
   }).then(res=> res.json());
   console.log(resp); // 
-  if (resp.status=='succeeded') {
-    const data = {status: 'succeeded', url: resp.result.url};
+  if (resp.status==='succeeded') {
+    const content = await fetch('./.netlify/functions/get-report-file-content', {
+      method: 'GET',
+      headers: {'Content_Type': 'application/json'},
+      body: JSON.stringify({url: resp.result.url}),
+    });
+    const data = {status: 'succeeded', url: resp.result.url, content: content};
     updatePaymentReportIns(month, data);
   }
   return resp;
