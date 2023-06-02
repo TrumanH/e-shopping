@@ -12,6 +12,7 @@ const Navigation = lazy(()=>import('./routes/navigation/navigation.component'));
 const Checkout = lazy(()=>import('./routes/checkout/checkout.component'));
 const Shop = lazy(()=> import('./routes/shop/shop.component'));
 const Authentication = lazy(()=>import('./routes/authentication/authentication.component'));
+const Admin = lazy(()=>import('./routes/admin/admin.component'));
 
 const App = ()=> {
   const dispatch = useDispatch();
@@ -51,6 +52,7 @@ const App = ()=> {
             <Route path='shop/*' element={<Shop />} />
             <Route path='auth' element={<Authentication />} />
             <Route path='checkout' element={<Checkout />} />
+            <Route path='admin' element={<Admin />} />
           </Route>
         </Routes>
       </Suspense>
